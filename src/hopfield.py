@@ -47,5 +47,5 @@ class HopfieldNetwork:
                 print("stable")
                 return curr
             prev = curr
-            print(Convert.decode(curr))
+            print(Convert.decode(self.matrix_width, curr))
         return curr

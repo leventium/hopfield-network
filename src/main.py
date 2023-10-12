@@ -1,18 +1,18 @@
 from hopfield import HopfieldNetwork
 from convert import Convert
-import symbols.symbols as s
+import symbols.symbols_14x14 as s
 
 
 def main():
     h = HopfieldNetwork(
-        matrix_width=12,
+        matrix_width=14,
         detection_epochs=20,
         activation=lambda x: 1 if x >= 0 else 0
     )
     h.fit([Convert.encode(elem) for elem in [
-        s.K, s.R, s.E, s.V, s.F, s.M, s.I, s.L
+        s.K, s.E, s.L
     ]])
-    print(Convert.decode(h.detect(Convert.encode(s.F))))
+    print(Convert.decode(14, h.detect(Convert.encode(s.K_))))
 
 
 if __name__ == "__main__":

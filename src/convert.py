@@ -10,10 +10,10 @@ class Convert:
         return res
 
     @staticmethod
-    def decode(arr) -> str:
+    def decode(width: int, arr) -> str:
         res = ""
-        for m in range(12):
-            for i in range(12):
-                res += "#" if arr[12*m+i] == 1 else " "
+        for m in range(width):
+            for i in range(width):
+                res += "#" if arr[width*m+i] == 1 else " "
             res += "\n"
         return res
