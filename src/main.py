@@ -7,7 +7,7 @@ def main():
     h = HopfieldNetwork(
         matrix_width=14,
         detection_epochs=20,
-        activation=lambda x: 1 if x >= 0 else 0
+        activation=lambda x: 1 if x >= 0 else -1
     )
     h.fit([Convert.encode(elem) for elem in [
         s.K, s.E, s.L
