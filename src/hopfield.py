@@ -1,23 +1,25 @@
 from typing import Callable
 import numpy as np
-from convert import Convert
+
 
 class HopfieldNetwork:
     def __init__(
             self,
             matrix_width: int,
-            detection_epochs: int,
-            activation: Callable
+            detection_epochs: int
         ) -> None:
         self.matrix_width = matrix_width
         self.detection_epochs = detection_epochs
-        self.activation_func = activation
         self.matrix = np.zeros((matrix_width ** 2, matrix_width ** 2))
+
+    def _activation_func(self, x):
+        k = (self.matrix.sum() / 2)
+        return 1 if x >= k else -1
 
     def _activate_vector(self, vec: np.ndarray) -> np.ndarray:
         res = np.zeros((vec.size, ))
         for i in range(vec.size):
-            res[i] = self.activation_func(vec[i])
+            res[i] = self._activation_func(vec[i])
         return res
 
 

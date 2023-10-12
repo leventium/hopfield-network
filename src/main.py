@@ -6,11 +6,10 @@ import symbols.symbols_14x14 as s
 def main():
     h = HopfieldNetwork(
         matrix_width=14,
-        detection_epochs=20,
-        activation=lambda x: 1 if x >= 0 else 0
+        detection_epochs=20
     )
     h.fit([Convert.encode(elem) for elem in [
-        s.K, s.E, s.L
+        s.K, s.E, s.L, s.R, s.F, s.V, s.M, s.I
     ]])
 
     for predict in [s.K_, s.E_, s.L_]:
