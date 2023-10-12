@@ -12,7 +12,11 @@ def main():
     h.fit([Convert.encode(elem) for elem in [
         s.K, s.E, s.L
     ]])
-    print(Convert.decode(14, h.detect(Convert.encode(s.K_))))
+
+    for predict in [s.K_, s.E_, s.L_]:
+        print(Convert.decode(14, Convert.encode(predict)), "\n\n")
+        print(Convert.decode(14, h.detect(Convert.encode(predict))))
+        print("\n\n--------------------------\n\n")
 
 
 if __name__ == "__main__":
