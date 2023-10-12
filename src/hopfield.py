@@ -36,7 +36,6 @@ class HopfieldNetwork:
         curr = None
 
         for _ in range(self.detection_epochs):
-            print(_)
             mul_result = np.matmul(self.matrix, prev)
             curr = self._activate_vector(mul_result)
             if first_round:
@@ -44,8 +43,6 @@ class HopfieldNetwork:
                 prev = curr
                 continue
             if (prev == curr).all():
-                print("stable")
                 return curr
             prev = curr
-            print(Convert.decode(self.matrix_width, curr))
         return curr

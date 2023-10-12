@@ -3,6 +3,14 @@ import numpy as np
 
 class Convert:
     @staticmethod
+    def encode_matrix(width: int, sym: str):
+        res = np.zeros((width, width))
+        for i in range(width):
+          for j in range(width):
+            res[i][j] = 1. if sym[width*i+j] == "#" else 0.
+        return res
+
+    @staticmethod
     def encode(symbol: str) -> np.ndarray:
         res = np.zeros((len(symbol), ), dtype=int)
         for i, c in enumerate(symbol):
